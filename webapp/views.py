@@ -2,7 +2,11 @@ from django.shortcuts import render
 
 from webapp.models import Car
 def index(request):
-    return render(request, 'webapp/index.html')
+    cars = Car.objects.all()
+    main_car = Car.objects.filter(is_main=True).first()
+    context = {"cars" : cars,
+               "main_car" : main_car}
+    return render(request, 'webapp/index.html', context=context)
 
 def about(request):
     return render(request, 'webapp/about.html')

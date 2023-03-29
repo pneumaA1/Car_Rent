@@ -17,3 +17,6 @@ class Car(models.Model):
     ])
     price = models.PositiveIntegerField()
     photo = models.ImageField(upload_to='car_photos/', blank=True)
+    is_main =models.BooleanField(default=False)
+    def __str__(self):
+        return self.title
