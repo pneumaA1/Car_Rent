@@ -22,7 +22,7 @@
         <div class="container">
             <div class="row">
 
-                {% for car in cars %}
+                {% for car in page_objs %}
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="item-1">
                             <a href="#"><img src="{{ car.photo.url }}"
@@ -72,10 +72,15 @@
                 {% endfor %}
 
                 <div class="col-12">
-                    <span class="p-3">1</span>
-                    <a href="#" class="p-3">2</a>
-                    <a href="#" class="p-3">3</a>
-                    <a href="#" class="p-3">4</a>
+                    {% for page in page_objs.paginator.page_range %}
+                        {% if page == page_objs.number %}
+                            <a href="?page={{ page }}#my-heading" class="p-3"
+                               style="color: #0b0b0b">{{ page }}</a>
+                        {% else %}
+                            <a href="?page={{ page }}#my-heading"
+                               class="p-3">{{ page }}</a>
+                        {% endif %}
+                    {% endfor %}
                 </div>
             </div>
         </div>
