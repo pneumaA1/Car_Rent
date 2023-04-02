@@ -1,5 +1,6 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render
+from django.views.generic import TemplateView, ListView, DetailView
 
 from webapp.models import Car
 
@@ -12,23 +13,36 @@ def index(request):
     return render(request, 'webapp/index.html', context=context)
 
 
-def about(request):
-    return render(request, 'webapp/about.html')
+class AboutView(TemplateView):
+    template_name = 'webapp/about.html'
 
 
-def cars(request):
-    cars = Car.objects.all()
-    paginator = Paginator(cars, 3)
-    page_number = request.GET.get('page')
-    page_objs = paginator.get_page(page_number)
-
-    context = {"page_objs": page_objs}
-    return render(request, 'webapp/cars.html', context=context)
 
 
-def services(request):
-    return render(request, 'webapp/services.html')
+class CarListView(ListView):
+    template_name = 'webapp/cars.html'
+    context_object_name = 'cars'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        paginator = Paginator(context['object_list'], 3)
+        page_number = self.request.GET.get('page')
+        page_objs = paginator.get_page(page_number)
+        context = {"page_objs": page_objs}
+        return super().get_context_data(**context)
+
+    def get_queryset(self):
+        return Car.objects.all()
 
 
-def contact(request):
-    return render(request, 'webapp/contact.html')
+class CarDetailView(DetailView):
+    model = Car
+    template_name = 'webapp/car_detail.html'
+
+
+class ServicesView(TemplateView):
+    template_name = 'webapp/services.html'
+
+
+class ContactView(TemplateView):
+    template_name = 'webapp/contact.html'

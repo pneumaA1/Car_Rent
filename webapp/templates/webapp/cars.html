@@ -29,7 +29,7 @@
                                              alt="Image" class="img-fluid"></a>
                             <div class="item-1-contents">
                                 <div class="text-center">
-                                    <h3><a href="#">{{ car.title }}</a></h3>
+                                    <h3><a href="{% url 'webapp:car_detail' car.pk %}">{{ car.title }}</a></h3>
                                     <div class="rating">
                                         {% for i in '12345' %}
                                             {% if forloop.counter <= car.rating %}
