@@ -11,4 +11,8 @@ urlpatterns =[
     path('cars/<int:pk>', CarDetailView.as_view(), name='car_detail'),
     path('services/', ServicesView.as_view(), name='services'),
     path('contact/', ContactView.as_view(), name='contact'),
+    path('accounts/login/', CRLoginView.as_view(), name='login'),
+    path('accounts/logout/', CRLogoutView.as_view(), name='logout'),
+    path('accounts/register/', RegisterUserView.as_view(), name='register'),
+    path('accounts/regitster/done/', RegisterDoneView.as_view(), name='register_done'),
 ]

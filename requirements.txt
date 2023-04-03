@@ -3,3 +3,5 @@ pillow==9.4.0
 pip-chill==1.0.1
 python-dotenv==1.0.0
 flake8==6.0.0
+bootstrap4==0.1.0
+django-bootstrap4==22.3
