@@ -20,3 +20,7 @@ class Car(models.Model):
     is_main =models.BooleanField(default=False)
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('webapp:car_detail', kwargs={'pk', self.pk})
