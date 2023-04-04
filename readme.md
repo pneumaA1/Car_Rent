@@ -1,6 +1,6 @@
 # Car_rent
 Car_rent is a web-based application designed to simplify the process of renting a car. With Car_rent, customers can easily browse through available cars, make reservations, and manage their bookings all in one place. This application is built using Python, Django, HTML, and CSS.
-##Installation
+## Installation
 1. Clone the repository using git clone https://github.com/pneumaA1/Car_rent.git
 2. Create a virtual environment by running python3 -m venv env
 3. Activate the virtual environment using source env/bin/activate on Linux/Mac or .\env\Scripts\activate on Windows
