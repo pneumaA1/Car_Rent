@@ -24,3 +24,8 @@ class Car(models.Model):
     def get_absolute_url(self):
         from django.urls import reverse
         return reverse('webapp:car_detail', kwargs={'pk', self.pk})
+
+
+    class Meta:
+        verbose_name = "Car"
+        verbose_name_plural = "Cars"

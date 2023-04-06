@@ -16,6 +16,11 @@ class Post(models.Model):
         return self.title
 
 
+    class Meta:
+        verbose_name = "Post"
+        verbose_name_plural = "Posts"
+
+
 class Commentary(models.Model):
     # post commentary model
     text = models.TextField()
@@ -25,6 +30,11 @@ class Commentary(models.Model):
 
     def __str__(self):
         return self.text[:50] + '...'
+
+
+    class Meta:
+        verbose_name = "Commentary"
+        verbose_name_plural = "commentaries"
 
 
 class Category(models.Model):
@@ -41,3 +51,8 @@ class Tags(models.Model):
 
     def __str__(self):
         return self.title
+
+
+    class Meta:
+        verbose_name = "Tag"
+        verbose_name_plural = "Tags"
