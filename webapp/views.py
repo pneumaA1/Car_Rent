@@ -6,7 +6,6 @@ from django.core.paginator import Paginator
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView, CreateView
 
-
 from webapp.forms import RegisterUserForm
 from webapp.models import Car
 
@@ -45,7 +44,6 @@ class CarListView(ListView):
         page_objs = paginator.get_page(page_number)
         context['page_objs'] = page_objs
         return super().get_context_data(**context)
-
 
     def get_queryset(self):
         return Car.objects.all()

@@ -4,7 +4,7 @@ from webapp.views import *
 
 app_name = 'webapp'
 
-urlpatterns =[
+urlpatterns = [
     path('', index, name='home'),
     path('about/', AboutView.as_view(), name='about'),
     path('cars/', CarListView.as_view(), name='cars'),
@@ -14,5 +14,6 @@ urlpatterns =[
     path('accounts/login/', CRLoginView.as_view(), name='login'),
     path('accounts/logout/', CRLogoutView.as_view(), name='logout'),
     path('accounts/register/', RegisterUserView.as_view(), name='register'),
-    path('accounts/regitster/done/', RegisterDoneView.as_view(), name='register_done'),
+    path('accounts/regitster/done/', RegisterDoneView.as_view(),
+         name='register_done'),
 ]
