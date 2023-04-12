@@ -5,3 +5,5 @@ python-dotenv==1.0.0
 flake8==6.0.0
 bootstrap4==0.1.0
 django-bootstrap4==22.3
+djangorestframework==3.14.0
+
