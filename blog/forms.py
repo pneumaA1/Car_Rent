@@ -3,6 +3,13 @@ from django import forms
 
 
 class CommentForm(forms.ModelForm):
+    """
+        A form to create or update a Commentary instance.
+        Attributes:
+            model (class): A reference to the Commentary model that this form is associated with.
+            fields (tuple): A tuple of field names to include in the form.
+    """
+
     class Meta:
         model = Commentary
         fields = ('author', 'email', 'text')
